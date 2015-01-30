@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "React-Seed",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -9,18 +9,15 @@
     "react": "~0.12.2",
     "underscore": "~1.7.0",
     "react-router": "~0.11.6",
-    "bootstrap": "~3.3.2",
     "literalify": "~0.3.0",
     "crypto": "0.0.3",
     "shortid": "~2.1.3"
   },
   "devDependencies": {
-    "browserify": "~8.1.1",
     "reactify": "~1.0.0",
     "watchify": "~2.2.1",
     "envify": "~3.2.0",
     "react": "^0.12.0",
-    "gulp-browserify": "~0.5.1",
     "gulp": "~3.8.10",
     "gulp-nodemon": "~1.0.5",
     "gulp-uglify": "~1.1.0",
@@ -47,9 +44,8 @@
     "gulp-rev-replace": "~0.3.3"
   },
   "scripts": {
-    "start": "watchify -o javascripts/bundle.js -v -d .",
-    "build": "browserify . | uglifyjs -cm > javascripts/bundle.min.js",
-    "web": "node app.js"
+    "start": "gulp",
+    "deploy": "gulp production"
   },
   "browserify": {
     "transform": [

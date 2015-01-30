@@ -1,3 +1,8 @@
+var _            = require("underscore");
+var config       = require("../config");
+var staticMap    = {};
+var staticLookup = {};
+
 // var browserify = require('browserify'),
   // literalify = require('literalify'),
   // React = require('react');
@@ -8,7 +13,15 @@
  * GET home page.
  */
 
+if (process.env.NODE_ENV == "production") {
+  staticLookup = require('../../public/rev-manifest.json');
+}
+
+staticMap.get = function(id) {
+  return staticLookup[id] || id;
+};
+
 exports.index = function(req, res){
   // var myAppHtml = React.renderToString(MyApp());
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, map: staticMap, config: config });
 };

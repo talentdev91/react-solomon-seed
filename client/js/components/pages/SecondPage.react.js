@@ -11,6 +11,7 @@ var SecondPage = React.createClass({
   componentDidMount: function() {
     var _this = this;
 
+    // todo : solomon : figure this out for isomorphic
     $.get('/api/data', function(result) {
       var message = result.message;
       if (_this.isMounted()) {

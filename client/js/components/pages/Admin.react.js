@@ -23,6 +23,7 @@ var AdminPage = React.createClass({
   componentDidMount: function() {
     var _this = this;
 
+    // todo : solomon : figure this out for isomorphic
     $.get('/api/getsecuredata', function(result) {
       var message = result.message;
       if (_this.isMounted()) {

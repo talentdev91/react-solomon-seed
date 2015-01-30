@@ -11,10 +11,10 @@ var App = React.createClass({
       <div>
         <NavBar/>
         <div className="container" id="main">
-            <RouteHandler/>
-            <div>
-              Solomon seed app: v<span>1</span>
-            </div>
+          <RouteHandler/>
+          <div>
+            Solomon seed app: v<span>1</span>
+          </div>
         </div>
       </div>
     );

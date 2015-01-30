@@ -29,21 +29,20 @@ module.exports = {
     Decodes the token.  Will return null if the token is invalid or expired.
    */
   decodeToken: function(token) {
-    var data, decipher, decoded, encrypted, expires, idx, now, salt, timeout, updated;
     if (!token) {
       return null;
     }
 
-    idx = token.lastIndexOf("|");
+    var idx = token.lastIndexOf("|");
     if (idx === -1) {
       return null;
     }
 
-    encrypted = token.substring(0, idx);
-    salt      = token.substring(idx + 1);
-    decipher  = crypto.createDecipher(algorithm, secretKey + salt);
-    updated   = decipher.update(encrypted, "hex", "utf8");
-    decoded   = null;
+    var encrypted = token.substring(0, idx);
+    var salt      = token.substring(idx + 1);
+    var decipher  = crypto.createDecipher(algorithm, secretKey + salt);
+    var updated   = decipher.update(encrypted, "hex", "utf8");
+    var decoded   = null;
 
     try {
       decoded = updated + decipher.final("utf8");
@@ -61,19 +60,19 @@ module.exports = {
       return null;
     }
 
-    data = decoded.substring(0, idx);
-    timeout = parseInt(decoded.substring(idx + 1));
+    var data = decoded.substring(0, idx);
+    var timeout = parseInt(decoded.substring(idx + 1));
 
     if (isNaN(timeout)) {
       return null;
     }
 
-    expires = new Date(timeout);
+    var expires = new Date(timeout);
     if (isNaN(expires.getTime())) {
       return null;
     }
 
-    now = new Date();
+    var now = new Date();
     if (now > expires) {
       console.log("token expired for user", data);
       return null;

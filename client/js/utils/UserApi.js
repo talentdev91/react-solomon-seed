@@ -2,7 +2,7 @@ var UserActions = require('../actions/UserActions');
 
 var auth = {
   login: function (email, pass) {
-    // UserActions.userAuthed({name: "solomon"})
+    // todo : solomon : figure this out for isomorphic
     return $.ajax({
       type: "post",
       url:"/api/login",

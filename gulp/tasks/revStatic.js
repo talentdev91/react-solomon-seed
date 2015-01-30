@@ -1,8 +1,9 @@
-var gulp     = require('gulp');
-var rev      = require('gulp-rev');
-var config   = require('../config');
-var path     = require('path');
-var gulpsync = require('gulp-sync')(gulp);
+var gulp       = require('gulp');
+var rev        = require('gulp-rev');
+var config     = require('../config');
+var path       = require('path');
+var gulpsync   = require('gulp-sync')(gulp);
+var revReplace = require('gulp-rev-replace');
 
 gulp.task('moveimages', function() {
   return gulp.src(['./client/images/**'], {base:"./client/images"})
@@ -16,6 +17,7 @@ gulp.task('revStaticItems', function() {
     './tmp/public/images/**/*'
     ], {base: path.join(process.cwd(), 'tmp/public')})
       .pipe(rev())
+      .pipe(revReplace())
       .pipe(gulp.dest('./deploy/public'))  // write rev'd assets to build dir
       .pipe(rev.manifest())
       .pipe(gulp.dest('./tmp/public')); // write manifest to build dir

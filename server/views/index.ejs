@@ -10,8 +10,12 @@
     <meta name="fragment" content="!" />
     <script>
       var globals = {
+        staticConfig: {
+          mapping: <%- JSON.stringify(map) %>,
+          cdn: '<%- config.cdn %>'
+        }
         <% if (user) { %>
-        user: {
+        , user: {
           id: '<%-user.id%>',
           login: '<%-user.login%>'
         }

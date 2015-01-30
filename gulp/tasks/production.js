@@ -13,4 +13,4 @@ gulp.task('clean-tmp', function () {
     .pipe(clean());
 });
 
-gulp.task('production', gulpsync.sync(['clean-deploy', 'clean-tmp', 'moveServer', 'uglifyJs', 'minifyCss', 'revStatic', 'clean-all']));
+gulp.task('production', gulpsync.sync(['clean-deploy', 'clean-tmp', 'moveServer', 'uglifyJs', 'minifyCss', 'revStatic', 'clean-tmp']));

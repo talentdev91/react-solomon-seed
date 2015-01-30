@@ -2,6 +2,13 @@ var dest = "./public/js";
 var src = './client/js';
 
 module.exports = {
+  vendorjs: {
+    libraries: [
+      './client/bower/jquery/dist/jquery.min.js',
+      './client/bower/bootstrap/dist/js/bootstrap.min.js',
+      './client/bower/fastclick/lib/fastclick.js'
+    ]
+  },
   browserSync: {
     proxy: "localhost:3001",
     files: ["public/stylesheets/**/*.css", "views/**/*.ejs"]

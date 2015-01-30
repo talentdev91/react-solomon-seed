@@ -17,11 +17,11 @@ if (process.env.NODE_ENV == "production") {
   staticLookup = require('../../public/rev-manifest.json');
 }
 
-staticMap.get = function(id) {
+staticLookup.get = function(id) {
   return staticLookup[id] || id;
 };
 
 exports.index = function(req, res){
   // var myAppHtml = React.renderToString(MyApp());
-  res.render('index', { user: req.user, map: staticMap, config: config });
+  res.render('index', { user: req.user, map: staticLookup, config: config });
 };

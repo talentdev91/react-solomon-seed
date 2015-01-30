@@ -1,5 +1,5 @@
-var Login = require('./Login.react');
-var auth = require('../stores/UserStore');
+var Login = require('../pages/Login.react');
+var auth = require('../../stores/UserStore');
 
 var Authentication = {
   statics: {

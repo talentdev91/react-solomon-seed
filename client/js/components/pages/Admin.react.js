@@ -1,7 +1,7 @@
 var React  = require('react');
 var Router = require('react-router');
-var Auth   = require('./Auth.react');
-var auth   = require('../utils/UserApi');
+var Auth   = require('../controls/Auth.react');
+var auth   = require('../../utils/UserApi');
 
 var AdminPage = React.createClass({
   // mark the object as needing authentication

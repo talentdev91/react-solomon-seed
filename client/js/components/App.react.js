@@ -2,7 +2,7 @@ var React        = require('react');
 var Router       = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link         = Router.Link;
-var NavBar       = require('./NavBar.react');
+var NavBar       = require('./controls/NavBar.react');
 var auth         = require('../stores/UserStore');
 
 var FluxApp = React.createClass({

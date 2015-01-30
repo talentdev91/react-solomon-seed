@@ -1,6 +1,6 @@
 var React     = require('react');
-var auth      = require('../utils/UserApi');
-var UserStore = require('../stores/UserStore');
+var auth      = require('../../utils/UserApi');
+var UserStore = require('../../stores/UserStore');
 var Router    = require('react-router');
 
 var LoginPage = React.createClass({

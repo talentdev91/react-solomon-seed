@@ -1,11 +1,11 @@
 var React      = require('react');
 var Router     = require('react-router');
 var App        = require('./components/App.react');
-var NotFound   = require('./components/NotFound.react');
-var FirstPage  = require('./components/FirstPage.react');
-var SecondPage = require('./components/SecondPage.react');
-var LoginPage  = require('./components/Login.react');
-var AdminPage  = require('./components/Admin.react');
+var NotFound   = require('./components/pages/NotFound.react');
+var FirstPage  = require('./components/pages/FirstPage.react');
+var SecondPage = require('./components/pages/SecondPage.react');
+var LoginPage  = require('./components/pages/Login.react');
+var AdminPage  = require('./components/pages/Admin.react');
 
 var Route      = Router.Route, DefaultRoute = Router.DefaultRoute, NotFoundRoute = Router.NotFoundRoute;
 

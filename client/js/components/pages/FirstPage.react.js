@@ -1,5 +1,6 @@
-var React     = require('react');
-var Link      = require('react-router').Link;
+var React  = require('react');
+var Link   = require('react-router').Link;
+var CDNImg = require('../controls/CDNImg.react');
 
 // Flux cart view
 var FirstPage = React.createClass({
@@ -42,19 +43,15 @@ var FirstPage = React.createClass({
       <div className="first-page starter-template">
         <h1>Bootstrap starter template</h1>
         <p className="lead">Use this document as a way to quickly start any new project.<br/> All you get is this text and a mostly barebones HTML document.</p>
-
         <p>{page}</p>
-
         <p>
-            This is from an http requests before the page loads '{loaded}'
+          This is from an http requests before the page loads '{loaded}'
         </p>
-
-        <p className="secure" ng-show="secureData">
-        </p>
+        <p className="secure" ng-show="secureData"></p>
         <p className="secure" ng-show="errorData">
-            <Link to="Admin">{secureLoaded}</Link>
+          <Link to="Admin">{secureLoaded}</Link>
         </p>
-        <img src="/images/lauren-cats.jpg" />
+        <CDNImg src="/images/lauren-cats.jpg" />
       </div>
     );
   }

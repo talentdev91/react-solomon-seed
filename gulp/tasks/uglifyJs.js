@@ -11,12 +11,12 @@ gulp.task('uglifyAppJs', ['browserify'], function() {
     .pipe(size());
 });
 
-gulp.task('uglifyVendorJs', function() {
-  return gulp.src(config.vendorjs.libraries)
-    .pipe(concat('vendorjs.js'))
+gulp.task('uglifyUiJs', function() {
+  return gulp.src(config.uijs.libraries)
+    .pipe(concat('ui.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./tmp/public/js'))
     .pipe(size());
 });
 
-gulp.task('uglifyJs', ['uglifyAppJs', 'uglifyVendorJs']);
+gulp.task('uglifyJs', ['uglifyAppJs', 'uglifyUiJs']);

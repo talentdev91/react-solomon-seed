@@ -2,7 +2,7 @@ var dest = "./public/js";
 var src = './client/js';
 
 module.exports = {
-  vendorjs: {
+  uijs: {
     libraries: [
       './client/bower/jquery/dist/jquery.min.js',
       './client/bower/bootstrap/dist/js/bootstrap.min.js',
@@ -23,7 +23,7 @@ module.exports = {
     bundleConfigs: [{
       entries:    './gulp/nop.js',
       dest:       dest,
-      outputName: 'vendor.js',
+      outputName: 'react.js',
       // Additional file extentions to make optional
       extensions: ['.js'],
       // list of modules to make require-able externally

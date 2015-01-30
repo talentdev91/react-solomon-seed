@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solomon Seed</title>
+    <base href="/">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <meta name="fragment" content="!" />
+    <script>
+      var globals = {
+        <% if (user) { %>
+        user: {
+          id: '<%-user.id%>',
+          login: '<%-user.login%>'
+        }
+        <%}%>
+      }
+    </script>
+  </head>
+  <body>
+    <script src="js/vendorjs.js"></script>
+    <script src="js/vendor.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

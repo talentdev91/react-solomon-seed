@@ -19,7 +19,6 @@ var config       = require('../config').browserify;
 var _            = require('lodash');
 
 var browserifyTask = function(callback, devMode) {
-  devMode = true;
   var bundleQueue = config.bundleConfigs.length;
 
   var browserifyThis = function(bundleConfig) {
@@ -31,6 +30,8 @@ var browserifyTask = function(callback, devMode) {
       // A watchify require/external bug that prevents proper recompiling,
       // so (for now) we'll ignore these options during development
       // bundleConfig = _.omit(bundleConfig, ['external', 'require'])
+    } else {
+      bundleConfig.dest = './tmp/public/js'
     }
 
     var b = browserify(bundleConfig);

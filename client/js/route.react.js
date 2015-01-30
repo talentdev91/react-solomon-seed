@@ -13,8 +13,8 @@ var routes = (
   <Route name="app" handler={App} path="/">
     <DefaultRoute handler={FirstPage} />
     <Route name="Page2" path="/page/2" handler={SecondPage}/>
-    <Route name="Login" path="/login" handler={LoginPage}/>
-    <Route name="Admin" path="/admin" handler={AdminPage}/>
+    <Route name="Login" path="/login"  handler={LoginPage}/>
+    <Route name="Admin" path="/admin"  handler={AdminPage}/>
     <NotFoundRoute handler={NotFound}/>
   </Route>
 );

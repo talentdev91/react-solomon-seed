@@ -30,8 +30,9 @@ module.exports = {
     }]
   },
   production: {
-    cssSrc: dest + '/*.css',
-    jsSrc:  dest + '/*.js',
-    dest:   dest
+    cssSrc:    './public/css/**/*.css',
+    cssDeploy: './tmp/public/css',
+    jsSrc:     dest + '/*.js',
+    dest:      dest
   }
 };

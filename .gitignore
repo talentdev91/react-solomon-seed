@@ -3,4 +3,6 @@ public/css
 public/js
 react-seed.sublime-workspace
 build
+deploy
+tmp
 client/bower

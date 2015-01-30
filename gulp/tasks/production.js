@@ -1,20 +1,22 @@
-var gulp       = require('gulp');
-var clean      = require('gulp-clean');
-var gulpsync   = require('gulp-sync')(gulp);
-var minifyCSS  = require('gulp-minify-css');
-var size       = require('gulp-filesize');
-var path       = require('path');
-var uglify     = require('gulp-uglify');
-var concat     = require('gulp-concat');
-
-var config     = require('../config');
+var gulp      = require('gulp');
+var clean     = require('gulp-clean');
+var gulpsync  = require('gulp-sync')(gulp);
+var minifyCSS = require('gulp-minify-css');
+var size      = require('gulp-filesize');
+var path      = require('path');
+var uglify    = require('gulp-uglify');
+var concat    = require('gulp-concat');
+var ignore    = require('gulp-ignore');
+var rimraf    = require('gulp-rimraf');
+var config    = require('../config');
 
 /*
   Cleanup the deploy folder
 */
 gulp.task('clean-deploy', function() {
-  return gulp.src('./deploy', {read: false})
-    .pipe(clean());
+  return gulp.src('./deploy/*', {read: false})
+    .pipe(ignore('.git/**'))
+    .pipe(rimraf());
 });
 
 /*
@@ -72,6 +74,14 @@ gulp.task('moveimages', function() {
     .pipe(gulp.dest('./tmp/public/images'));
 });
 
+/*
+  Move the heroku files
+*/
+gulp.task('moveHeroku', function() {
+  return gulp.src(['./package.json', './Procfile'])
+    .pipe(gulp.dest('./deploy'));
+});
+
 gulp.task('production', gulpsync.sync([
   'clean-deploy',
   'clean-tmp',
@@ -81,5 +91,6 @@ gulp.task('production', gulpsync.sync([
   'minifyCss',
   'moveimages',
   'revStatic',
-  'clean-tmp'
+  'clean-tmp',
+  'moveHeroku'
 ]));

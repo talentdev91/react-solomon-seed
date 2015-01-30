@@ -17,12 +17,12 @@ gulp.task('uijs', function() {
 /*
   Start the web server and set a watch on it
 */
-gulp.task('web', function () {
+gulp.task('web', function() {
   nodemon({
     script: './server/app.js',
     ext: 'html js',
     ignore: ['build/*', 'client/*', 'gulp/*', 'public/*']
-  }).on('restart', function () {
+  }).on('restart', function() {
     console.log('restarted!')
   });
 });

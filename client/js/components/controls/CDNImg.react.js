@@ -1,7 +1,7 @@
 var React = require('react');
 
 var CDNImg = React.createClass({
-  render: function () {
+  render: function() {
     // todo : solomon : figure this out for isomorphic
     var cdnPath = globals.staticConfig.cdn;
 

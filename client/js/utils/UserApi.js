@@ -1,7 +1,7 @@
 var UserActions = require('../actions/UserActions');
 
 var auth = {
-  login: function (email, pass) {
+  login: function(email, pass) {
     // todo : solomon : figure this out for isomorphic
     return $.ajax({
       type: "post",
@@ -14,12 +14,12 @@ var auth = {
         pass: pass
       }
     })
-    .done(function(data){
+    .done(function(data) {
       UserActions.userAuthed(data);
     });
   },
 
-  logout: function (cb) {
+  logout: function(cb) {
     // delete the cookie
     document.cookie = 'auth=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 

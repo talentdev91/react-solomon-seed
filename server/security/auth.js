@@ -1,7 +1,7 @@
 var tokens    = require('./tokens');
 var userStore = require('../stores/user');
 
-module.exports = function (req, res, next) {
+module.exports = function(req, res, next) {
   if (req.cookies.auth) {
     // decode the token into a user id
     var data = tokens.decodeToken(req.cookies.auth);

@@ -5,7 +5,7 @@ var gulpIgnore = require('gulp-ignore');
 var config     = require('../config').react;
 var clean      = require('gulp-clean');
 
-gulp.task('clean-build', function () {
+gulp.task('clean-build', function() {
   return gulp.src('./build', {read: false})
     .pipe(clean());
 });
@@ -15,7 +15,7 @@ gulp.task('copy-react', function() {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('jsx', function () {
+gulp.task('jsx', function() {
   return gulp.src(config.src)
     .pipe(react())
     .pipe(gulp.dest(config.dest));

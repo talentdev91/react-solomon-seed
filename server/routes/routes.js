@@ -10,7 +10,7 @@ requiresAuth = function(req, res, next) {
   res.send(403, "Forbidden");
 }
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.get('/api/data', data.get);
   app.get('/api/getsecuredata', requiresAuth, data.getsecure);
   app.post('/api/login', auth.login);

@@ -12,7 +12,7 @@ var config     = require('../config');
 /*
   Cleanup the deploy folder
 */
-gulp.task('clean-deploy', function () {
+gulp.task('clean-deploy', function() {
   return gulp.src('./deploy', {read: false})
     .pipe(clean());
 });
@@ -20,7 +20,7 @@ gulp.task('clean-deploy', function () {
 /*
   Clean the temp folder
 */
-gulp.task('clean-tmp', function () {
+gulp.task('clean-tmp', function() {
   return gulp.src('./tmp', {read: false})
     .pipe(clean());
 });

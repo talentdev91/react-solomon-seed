@@ -6,7 +6,7 @@ var Link         = Router.Link;
 var NavBar = React.createClass({
   mixins: [Router.State],
 
-  render: function () {
+  render: function() {
     var path = this.getPath();
 
     return (

@@ -6,7 +6,7 @@ var NavBar       = require('./controls/NavBar.react');
 var auth         = require('../stores/UserStore');
 
 var App = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <div>
         <NavBar/>

@@ -4,7 +4,11 @@ var RouteHandler = Router.RouteHandler;
 var Link         = Router.Link;
 
 var NavBar = React.createClass({
+  mixins: [Router.State],
+
   render: function () {
+    var path = this.getPath();
+
     return (
       <div className="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div className="container">
@@ -19,13 +23,13 @@ var NavBar = React.createClass({
           </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li>
+              <li className={path == '/' ? 'active' : ''}>
                 <Link to="app">Page 1</Link>
               </li>
-              <li>
+              <li className={path == '/page/2' ? 'active' : ''}>
                 <Link to="Page2">Page 2</Link>
               </li>
-              <li>
+              <li className={path == '/admin' ? 'active' : ''}>
                 <Link to="Admin">Admin</Link>
               </li>
             </ul>

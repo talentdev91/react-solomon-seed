@@ -1,4 +1,4 @@
-var React = require('react');
+var React  = require('react');
 
 // Flux cart view
 var SecondPage = React.createClass({

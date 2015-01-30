@@ -5,24 +5,7 @@ var Link         = Router.Link;
 var NavBar       = require('./controls/NavBar.react');
 var auth         = require('../stores/UserStore');
 
-var FluxApp = React.createClass({
-  // getInitialState: function () {
-  //   return {
-  //     loggedIn: auth.loggedIn()
-  //   };
-  // },
-
-  // setStateOnAuth: function (loggedIn) {
-  //   this.setState({
-  //     loggedIn: loggedIn
-  //   });
-  // },
-
-  // componentWillMount: function () {
-  //   auth.onChange = this.setStateOnAuth;
-  //   auth.login();
-  // },
-
+var App = React.createClass({
   render: function () {
     return (
       <div>
@@ -38,4 +21,4 @@ var FluxApp = React.createClass({
   }
 });
 
-module.exports = FluxApp;
+module.exports = App;

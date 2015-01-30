@@ -1,16 +1,33 @@
 var gulp       = require('gulp');
 var rev        = require('gulp-rev');
-var config     = require('../config');
-var path       = require('path');
-var gulpsync   = require('gulp-sync')(gulp);
 var revReplace = require('gulp-rev-replace');
+var path       = require('path');
+var _          = require('underscore');
 
-gulp.task('moveimages', function() {
-  return gulp.src(['./client/images/**'], {base:"./client/images"})
-    .pipe(gulp.dest('./tmp/public/images'));
-});
+// add's a slash prefix to all the keys and values
+function addSlash() {
+  function transform(file, cb) {
+    var arr = JSON.parse(String(file.contents));
+    var res = {};
 
-gulp.task('revStaticItems', function() {
+    _.each(arr, function(k, v){
+      res['/' + v] = '/' + k;
+    });
+
+    // read and modify file contents
+    file.contents = new Buffer(JSON.stringify(res));
+
+    // if there was some error, just pass as the first parameter here
+    cb(null, file);
+  }
+
+  return require('event-stream').map(transform);
+}
+
+/*
+  Static rev all the files and output a map file
+*/
+gulp.task('revStatic', function() {
   return gulp.src([
     './tmp/public/css/*.css',
     './tmp/public/js/*.js',
@@ -18,9 +35,8 @@ gulp.task('revStaticItems', function() {
     ], {base: path.join(process.cwd(), 'tmp/public')})
       .pipe(rev())
       .pipe(revReplace())
-      .pipe(gulp.dest('./deploy/public'))  // write rev'd assets to build dir
+      .pipe(gulp.dest('./deploy/public'))
       .pipe(rev.manifest())
-      .pipe(gulp.dest('./tmp/public')); // write manifest to build dir
+      .pipe(addSlash())
+      .pipe(gulp.dest('./deploy/public'));
 });
-
-gulp.task('revStatic', gulpsync.sync(['moveimages','revStaticItems', 'pathify']));

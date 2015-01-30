@@ -6,7 +6,6 @@ var Router    = require('react-router');
 var LoginPage = React.createClass({
   mixins: [ Router.Navigation ],
 
-  // Get initial state from stores
   getInitialState: function() {
     return {};
   },
@@ -16,7 +15,7 @@ var LoginPage = React.createClass({
   },
 
   handleSubmit: function(e) {
-    _this = this;
+    that = this;
 
     e.preventDefault();
     var name = this.refs.name.getDOMNode().value.trim();
@@ -26,24 +25,21 @@ var LoginPage = React.createClass({
     }
     auth.login(name, pass)
       .fail(function(){
-        _this.setState({loginFailed: true});
+        that.setState({loginFailed: true});
       });
 
     this.refs.name.getDOMNode().value = '';
     this.refs.password.getDOMNode().value = '';
   },
 
-  // Add change listeners to stores
   componentDidMount: function() {
     UserStore.addChangeListener(this._onChange);
   },
 
-  // Remove change listers from stores
   componentWillUnmount: function() {
     UserStore.removeChangeListener(this._onChange);
   },
 
-  // Render cart view
   render: function() {
     return (
       <div className="page-login">

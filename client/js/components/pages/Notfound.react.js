@@ -1,7 +1,9 @@
 var React = require('react');
 
+/*
+  The 404 page
+*/
 var NotFound = React.createClass({
-  // Render our child components, passing state via props
   render: function() {
     return (
       <div>Not Found</div>

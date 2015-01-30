@@ -2,34 +2,31 @@ var React  = require('react');
 var Link   = require('react-router').Link;
 var CDNImg = require('../controls/CDNImg.react');
 
-// Flux cart view
 var FirstPage = React.createClass({
-  // Get initial state from stores
   getInitialState: function() {
     return {};
   },
 
-  // Add change listeners to stores
   componentDidMount: function() {
-    var _this = this;
+    var that = this;
 
     // todo : solomon : figure this out for isomorphic
     $.get('/api/data', function(result) {
       var message = result.message;
-      if (_this.isMounted()) {
-        _this.setState({message: message});
+      if (that.isMounted()) {
+        that.setState({message: message});
       }
     });
 
     $.get('/api/getsecuredata', function(result) {
       var message = result.message;
-      if (_this.isMounted()) {
-        _this.setState({securemessage: message});
+      if (that.isMounted()) {
+        that.setState({securemessage: message});
       }
     })
     .fail(function() {
-      if (_this.isMounted()) {
-        _this.setState({securemessage: "Access Denied to secure data"});
+      if (that.isMounted()) {
+        that.setState({securemessage: "Access Denied to secure data"});
       }
     });
   },

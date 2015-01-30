@@ -5,9 +5,9 @@ var auth   = require('../../utils/UserApi');
 
 var AdminPage = React.createClass({
   // mark the object as needing authentication
+  // give the object access to navigation
   mixins: [ Auth, Router.Navigation ],
 
-  // Get initial state from stores
   getInitialState: function() {
     return {};
   },
@@ -19,20 +19,19 @@ var AdminPage = React.createClass({
     this.replaceWith('/');
   },
 
-  // Add change listeners to stores
   componentDidMount: function() {
-    var _this = this;
+    var that = this;
 
     // todo : solomon : figure this out for isomorphic
     $.get('/api/getsecuredata', function(result) {
       var message = result.message;
-      if (_this.isMounted()) {
-        _this.setState({securemessage: message});
+      if (that.isMounted()) {
+        that.setState({securemessage: message});
       }
     })
     .fail(function() {
-      if (_this.isMounted()) {
-        _this.setState({securemessage: "Access Denied to secure data"});
+      if (that.isMounted()) {
+        that.setState({securemessage: "Access Denied to secure data"});
       }
     });
   },

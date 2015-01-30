@@ -1,30 +1,26 @@
 var React  = require('react');
 
-// Flux cart view
 var SecondPage = React.createClass({
-  // Get initial state from stores
   getInitialState: function() {
     return {};
   },
 
-  // Add change listeners to stores
   componentDidMount: function() {
-    var _this = this;
+    var that = this;
 
     // todo : solomon : figure this out for isomorphic
     $.get('/api/data', function(result) {
       var message = result.message;
-      if (_this.isMounted()) {
-        _this.setState({message: message});
+      if (that.isMounted()) {
+        that.setState({message: message});
       }
     }).fail(function() {
-      if (_this.isMounted()) {
-        _this.setState({message: "Error getting data"});
+      if (that.isMounted()) {
+        that.setState({message: "Error getting data"});
       }
     });
   },
 
-  // Render cart view
   render: function() {
     var page = "Page 2";
     var remoteData = this.state.message || "Loading...";
@@ -32,18 +28,12 @@ var SecondPage = React.createClass({
     return (
       <div className="second-page starter-template">
         <h1>This is the partial for view 2.</h1>
-        <p>
-            Showing of 'interpolate' filter: [[todo]]
-        </p>
-
         <div className="cats"></div>
-
         <p>{page}</p>
-
         <p>
-            This is from an async http requests '<span>{remoteData}</span>'
+          This is from an async http requests '<span>{remoteData}</span>'
         </p>
-    </div>
+      </div>
     );
   }
 });

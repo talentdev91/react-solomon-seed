@@ -14,5 +14,5 @@ module.exports = function(app) {
   app.get('/api/data', data.get);
   app.get('/api/getsecuredata', requiresAuth, data.getsecure);
   app.post('/api/login', auth.login);
-  app.get('/', page.index);
+  app.get('*', page.index);
 };

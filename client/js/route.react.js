@@ -21,7 +21,8 @@ var routes = (
 
 module.exports = {
   init: function() {
-    Router.run(routes, function(Handler) {
+    // setup html5 routes
+    Router.run(routes, Router.HistoryLocation, function(Handler) {
       React.render(<Handler/>, document.body);
     });
   }

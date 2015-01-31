@@ -22,7 +22,6 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(auth);
-app.use(app.router);
 app.use(express.static(path.join(__dirname, '../public')));
 
 // development only
@@ -32,6 +31,7 @@ if ('development' == app.get('env')) {
 }
 
 // setup the routes
+app.use(app.router);
 routes(app);
 
 http.createServer(app).listen(app.get('port'), function(){

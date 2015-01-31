@@ -7,7 +7,7 @@ var express = require('express');
 var http    = require('http');
 var path    = require('path');
 var auth    = require('./security/auth');
-var routes  = require('./routes/routes')
+var routes  = require('./routes/routes');
 
 var app = express();
 
@@ -22,6 +22,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(auth);
+app.use(express.compress());
 app.use(express.static(path.join(__dirname, '../public')));
 
 // development only
